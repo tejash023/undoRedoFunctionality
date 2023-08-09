@@ -1,4 +1,4 @@
-const inputElement = document.getElementById("input");
+let inputElement = document.getElementById("input");
 
 let inputArray = [];
 let historyArray = [];
@@ -6,8 +6,8 @@ let historyArray = [];
 inputElement.addEventListener("input", function () {
   const inputValue = inputElement.value;
   inputArray = inputValue.split("");
-  console.log(inputArray);
-  console.log(historyArray);
+  console.log("Input Array", inputArray);
+  console.log("History Array", historyArray);
 });
 
 //if user press "B" Button
@@ -36,10 +36,12 @@ document.addEventListener("keydown", function (event) {
 function undo(inputArray) {
   const undoCharacter = inputArray.pop();
   historyArray.push(undoCharacter);
+  inputElement.value = inputArray.join("");
 }
 
 //redo
 function redo(historyArray) {
   const redoCharacter = historyArray.pop();
   inputArray.push(redoCharacter);
+  inputElement.value = inputArray.join("");
 }
