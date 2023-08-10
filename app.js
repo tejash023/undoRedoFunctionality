@@ -17,14 +17,18 @@ document.addEventListener("keydown", function (event) {
     event.preventDefault();
     console.log("Backspace/Undo is pressed");
 
+    //Undo
     undo(inputArray);
 
     console.log("undo InputArray", inputArray);
     console.log("undo HistoryArray", historyArray);
-  } else if (event.key === "z" && event.ctrlKey) {
+  }
+  //Check if the pressed key is "Ctrl + Z"
+  else if (event.key === "z" && event.ctrlKey) {
     event.preventDefault();
     console.log("CTRL + Z is pressed");
 
+    //Redo
     redo(historyArray);
 
     console.log("redo InputArray", inputArray);
